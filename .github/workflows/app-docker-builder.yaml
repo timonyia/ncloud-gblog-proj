@@ -1,0 +1,13 @@
+name: Build|Publish custom ghost image
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+defaults:
+  build-and-push-docker-image:
+    name: Build|Push 
+    runs-on: ubuntu-latest
+
+ 
