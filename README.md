@@ -1,7 +1,10 @@
 Ncloud assignment work in progress 
 
-- Architecture design
+- ● Architecture design
 - Ability to present solutions
-- Engineering skills
-- Documentation
-- Security
+● Engineering skills
+● Documentation
+● Security
+
+
+
