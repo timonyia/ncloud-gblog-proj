@@ -5,7 +5,7 @@ metadata:
   labels:
     app: blog
 spec:
-  replicas: 1
+  replicas: 4
   selector:
     matchLabels:
       app: blog
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: blog
-        image: phelun/ghost-init:latest
+        image: phelun/ghost-init:v0.1
         imagePullPolicy: Always
         ports:
         - containerPort: 2368
