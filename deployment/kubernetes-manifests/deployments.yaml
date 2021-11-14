@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: blog
+  namespace: ncloud-wip
   labels:
     app: blog
 spec:
