@@ -1,3 +1,3 @@
 - $ #aws sts get-caller-identity
-- $ #aws eks --region eu-west-1 update-kubeconfig --name bfinance-main
+- $ #aws eks --region eu-west-1 update-kubeconfig --name ncloud-gblog-proj
 - $ #kubectl config get-contexts
