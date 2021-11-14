@@ -1,0 +1,44 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1alpha1
+kind: ImagePolicy
+metadata:
+  name: ghostblog
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: ghostblog
+  policy:
+    semver:
+      range: v0.x
+---
+apiVersion: image.toolkit.fluxcd.io/v1alpha1
+kind: ImageRepository
+metadata:
+  name: ghostblog
+  namespace: flux-system
+spec:
+  secretRef:
+    name: ecr-credentials
+  image: 303577146899.dkr.ecr.eu-west-1.amazonaws.com/ncloud-gblog-proj
+  interval: 1m0s
+---
+apiVersion: image.toolkit.fluxcd.io/v1alpha1
+kind: ImageUpdateAutomation
+metadata:
+  name: flux-system
+  namespace: flux-system
+spec:
+  checkout:
+    branch: master
+    gitRepositoryRef:
+      name: flux-system
+  commit:
+    authorEmail: phelun@yahoo.com
+    authorName: fluxcdbot
+    messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
+  interval: 1m0s
+  push:
+    branch: master
+  update:
+    path: ./clusters/eks
+    strategy: Setters
