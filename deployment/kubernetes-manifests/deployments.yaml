@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: blog
-        image: phelun/ghost-init:v0.1
+        image: phelun/ghost-init:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 2368
