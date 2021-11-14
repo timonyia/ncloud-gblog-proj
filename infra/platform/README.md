@@ -1,0 +1,3 @@
+~ $ #aws sts get-caller-identity
+~ $ #aws eks --region eu-west-1 update-kubeconfig --name bfinance-main
+~ $ #kubectl config get-contexts
