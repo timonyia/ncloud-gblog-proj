@@ -12,7 +12,7 @@ This setup integrate multiple devops tools to achieve a deployment. Below are th
 
 ### Create networking layers (VPC|Subnets etc)
 Navigate to [networking-infra](https://github.com/timonyia/ncloud-gblog-proj/tree/master/infra/networking)
-Resources include 
+>Resources include 
 * Basic VPC module 
 * subnet configuration 
 * NATG toggle 
@@ -20,7 +20,7 @@ Resources include
 
 ### Create platform(EKS) for deployment infra 
 Navigate to [platform-infra](https://github.com/timonyia/ncloud-gblog-proj/tree/master/infra/platform)
-Resources include
+>Resources include
 * Third party EKS module
 * Dynamic networking interpolation 
 * EKS v1.20 
