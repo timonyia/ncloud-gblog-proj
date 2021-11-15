@@ -22,6 +22,9 @@ flux bootstrap github --owner timonyia --repository flux-controller --branch mas
 ```ruby
 flux create source git ncloud-gblog-proj-source --url https://github.com/timonyia/ncloud-gblog-proj.git --branch master --interval 30s --export | tee apps/ncloud-gblog-proj-source.yaml 
 ```
+```ruby
+flux create kustomization ncloud-gblog-proj-source --source ncloud-gblog-proj-source-source --path "./deployment/flux-kustomizer" --prune true --validation client --interval 10m --export | tee -a apps/ncloud-gblog-proj-source.yaml
+```
 
 - Deploy components via repo with flux gitOps 
     - GhotBlog app 
