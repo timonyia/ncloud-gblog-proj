@@ -74,7 +74,7 @@ flux-system                     True    Applied revision: master/2946a5144624abc
 ncloud-gblog-proj-source        True    Applied revision: master/04df242257cd11859b1171c35ee9b3fe29dc0663       master/04df242257cd11859b1171c35ee9b3fe29dc0663 False 
 ```
 
-### Deploy components via repo with flux(gitOps)
+### Deploy app components via repo with flux(gitOps)
 >test|staging|prod environment 
 ```ruby
 ncloud-gblog-proj/deployment/flux-kustomizer/test-env
@@ -86,6 +86,11 @@ total 32
 -rw-------  1 felixm  181693646  516 15 Nov 20:14 deployments.yaml
 ```
 
+### Deploy monitoring components via repo with flux(gitOps)
+Navigate to [monitoring-components](https://github.com/timonyia/ncloud-gblog-proj/tree/master/deployment/flux-kustomizer/cluster-monitoring)
+>Components include 
+* Grafana 
+* Prometheus 
 
 ### App routing and ingress configuration 
 1. Install ingress controller on cluster via cli
@@ -142,3 +147,5 @@ staging-env-ghostblog   staging-env-ingress   <none>   staging-env.aws.mycloudle
 test-env-ghostblog      test-env-ingress      <none>   test-env.aws.mycloudlearning.uk      aa5c0806e27224c50aeac2e5b02ee1e5-1755909412.eu-west-1.elb.amazonaws.com   80      27m
 ```
 
+### Configure cluster dashboard 
+Manual setup of rancher with [user-guide](https://rancher.com/docs/rke/latest/en/config-options/)
