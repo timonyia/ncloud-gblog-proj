@@ -76,7 +76,6 @@ kube-public          Active   158m
 kube-system          Active   158m
 test-env-ghostblog   Active   56m
 $ kcd ingress-nginx
-Context "arn:aws:eks:eu-west-1:303577146899:cluster/ncloud-gblog-proj-cluster" modified.
 flux-controller[master] $ k get po 
 NAME                                        READY   STATUS      RESTARTS   AGE
 ingress-nginx-admission-create-kb5qq        0/1     Completed   0          71s
