@@ -46,7 +46,6 @@ ncloud-gblog-proj-source        True    Applied revision: master/04df242257cd118
 
 - Deploy components via repo with flux(gitOps)
     - test|staging|prod environment 
-    
     - GhotBlog app 
     - Monitoring
     - Ingress 
