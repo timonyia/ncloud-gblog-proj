@@ -36,6 +36,10 @@ Navigate to [ecr-image-build](https://github.com/timonyia/ncloud-gblog-proj/blob
 >Components include 
 * ECR repo 
 * Image build workflow with GHA
+>Authenticate to ECR locally 
+```ruby
+aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 303577xxxxx.dkr.ecr.eu-west-1.amazonaws.com
+```
 
 ### Bootstrap platform(EKS) with fluxCD
 ```ruby
