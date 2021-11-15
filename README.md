@@ -75,6 +75,7 @@ kube-node-lease      Active   158m
 kube-public          Active   158m
 kube-system          Active   158m
 test-env-ghostblog   Active   56m
+
 $ kcd ingress-nginx
 flux-controller[master] $ k get po 
 NAME                                        READY   STATUS      RESTARTS   AGE
