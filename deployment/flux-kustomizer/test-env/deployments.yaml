@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: test-env-ghostblog
-  namespace: dev1
+  namespace: test-env-ghostblog
   labels:
     app: test-env-ghostblog
 spec:
