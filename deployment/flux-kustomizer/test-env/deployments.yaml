@@ -1,26 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: blog
-  namespace: staging-env
+  name: test-env-ghostblog
+  namespace: dev1
   labels:
-    app: blog
+    app: test-env-ghostblog
 spec:
-  replicas: 9
+  replicas: 2
   selector:
     matchLabels:
-      app: blog
+      app: test-env-ghostblog
   template:
     metadata:
       labels:
-        app: blog
+        app: test-env-ghostblog
     spec:
       containers:
-      - name: blog
-        image: phelun/ghost-init:latest
+      - name: test-env-ghostblog
+        image: phelun/ghost-init:v0.3
         imagePullPolicy: Always
         ports:
         - containerPort: 2368
-        # env:
-        # - name: url
-        #   value: http://my-blog.com

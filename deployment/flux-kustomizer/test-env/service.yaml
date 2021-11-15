@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: blog
-  namespace: staging-env
+  name: test-env-ghostblog
+  namespace: dev1
 spec:
   type: LoadBalancer
   selector:
-    app: blog
+    app: test-env-ghostblog
   ports:
   - protocol: TCP
     port: 80
