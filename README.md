@@ -46,6 +46,15 @@ ncloud-gblog-proj-source        True    Applied revision: master/04df242257cd118
 
 - Deploy components via repo with flux(gitOps)
     - test|staging|prod environment 
+```ruby
+ncloud-gblog-proj/deployment/flux-kustomizer/test-env
+test-env[master] $ ll 
+total 32
+-rw-r--r--  1 felixm  181693646  133 15 Nov 20:07 kustomization.yaml
+-rw-r--r--  1 felixm  181693646   75 15 Nov 20:09 test-env-ns.yaml
+-rw-------  1 felixm  181693646  225 15 Nov 20:12 service.yaml
+-rw-------  1 felixm  181693646  516 15 Nov 20:14 deployments.yaml
+```
     - GhotBlog app 
     - Monitoring
     - Ingress 
