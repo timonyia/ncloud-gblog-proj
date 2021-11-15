@@ -10,7 +10,8 @@ Ncloud assignment work in progress
 This is a setup that ochestrates deployment of ghost blog to a kubernetes cluster, in our case EKS 
 This setup integrate multiple devops tools to achieve a deployment. Below are the following steps we have implemented to 
 
-- Create networking layers (VPC|Subnets etc)
+### Create networking layers (VPC|Subnets etc)
+Navigate to [infra](https://github.com/timonyia/ncloud-gblog-proj/tree/master/infra/networking)
 - Create platform for deployment 
 - Build and push application to ECR (Ci)
 - Bootstrap platform(EKS) with fluxCD
