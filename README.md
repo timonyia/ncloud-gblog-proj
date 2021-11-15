@@ -35,7 +35,13 @@ flux create source git ncloud-gblog-proj-source --url https://github.com/timonyi
 flux create kustomization ncloud-gblog-proj-source --source ncloud-gblog-proj-source --path "./deployment/flux-kustomizer" --prune true --validation client --interval 10m --export | tee -a apps/ncloud-gblog-proj-source.yaml 
 ```
 ```ruby
-flux create kustomization ncloud-gblog-proj-source --source ncloud-gblog-proj-source --path "./deployment/flux-kustomizer" --prune true --validation client --interval 10m --export | tee -a apps/ncloud-gblog-proj-source.yaml
+flux get source git ; flux get kustomization 
+NAME                            READY   MESSAGE                                                                 REVISION                                        SUSPENDED 
+flux-system                     True    Fetched revision: master/2946a5144624abc62d6a286c5babb823666763ba       master/2946a5144624abc62d6a286c5babb823666763ba False    
+ncloud-gblog-proj-source        True    Fetched revision: master/04df242257cd11859b1171c35ee9b3fe29dc0663       master/04df242257cd11859b1171c35ee9b3fe29dc0663 False    
+NAME                            READY   MESSAGE                                                                 REVISION                                        SUSPENDED 
+flux-system                     True    Applied revision: master/2946a5144624abc62d6a286c5babb823666763ba       master/2946a5144624abc62d6a286c5babb823666763ba False    
+ncloud-gblog-proj-source        True    Applied revision: master/04df242257cd11859b1171c35ee9b3fe29dc0663       master/04df242257cd11859b1171c35ee9b3fe29dc0663 False 
 ```
 
 - Deploy components via repo with flux(gitOps)
