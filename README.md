@@ -1,5 +1,5 @@
-Ncloud progress
-***
+Ncloud project
+---
 
 - Architecture design
 - Ability to present solutions
