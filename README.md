@@ -61,4 +61,27 @@ total 32
     - Security rbac manager 
     - 
 
+- App routing and ingress configuration 
+1. Install ingress controller on cluster via cli
+```ruby
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml
+
+$ k get ns 
+NAME                 STATUS   AGE
+default              Active   158m
+flux-system          Active   138m
+ingress-nginx        Active   44s   # Ingress Controller sits on the ingress-nginx NS
+kube-node-lease      Active   158m
+kube-public          Active   158m
+kube-system          Active   158m
+test-env-ghostblog   Active   56m
+$ kcd ingress-nginx
+Context "arn:aws:eks:eu-west-1:303577146899:cluster/ncloud-gblog-proj-cluster" modified.
+flux-controller[master] $ k get po 
+NAME                                        READY   STATUS      RESTARTS   AGE
+ingress-nginx-admission-create-kb5qq        0/1     Completed   0          71s
+ingress-nginx-admission-patch-nr96c         0/1     Completed   1          71s
+ingress-nginx-controller-65c4f84996-lsf2r   1/1     Running     0          71s
+```
+2. 
 
