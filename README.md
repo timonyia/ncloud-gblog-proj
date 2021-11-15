@@ -13,17 +13,17 @@ This setup integrate multiple devops tools to achieve a deployment. Below are th
 ### Create networking layers (VPC|Subnets etc)
 Navigate to [networking-infra](https://github.com/timonyia/ncloud-gblog-proj/tree/master/infra/networking)
 Resources include 
-    - Basic VPC module 
-    - subnet configuration 
-    - NATG toggle 
-    - ECR setup
+    * Basic VPC module 
+    * subnet configuration 
+    * NATG toggle 
+    * ECR setup
 
 ### Create platform(EKS) for deployment infra 
 Navigate to [platform-infra](https://github.com/timonyia/ncloud-gblog-proj/tree/master/infra/platform)
 Resources include
-    - Third party EKS module
-    - Dynamic networking interpolation 
-    - EKS v1.20 
+    >Third party EKS module
+    >Dynamic networking interpolation 
+    >EKS v1.20 
 ### Build and push application to ECR (GitHub Action)
 Navigate to [ecr-image-build](https://github.com/timonyia/ncloud-gblog-proj/blob/master/.github/workflows/app-docker-builder.yaml)
 Componenets incoude 
