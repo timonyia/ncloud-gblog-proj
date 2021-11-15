@@ -21,14 +21,14 @@ Resources include
 ### Create platform(EKS) for deployment infra 
 Navigate to [platform-infra](https://github.com/timonyia/ncloud-gblog-proj/tree/master/infra/platform)
 Resources include
->Third party EKS module
->Dynamic networking interpolation 
->EKS v1.20 
+* Third party EKS module
+* Dynamic networking interpolation 
+* EKS v1.20 
 ### Build and push application to ECR (GitHub Action)
 Navigate to [ecr-image-build](https://github.com/timonyia/ncloud-gblog-proj/blob/master/.github/workflows/app-docker-builder.yaml)
 Componenets incoude 
-    - ECR repo 
-    - Image build workflow with GHA
+* ECR repo 
+* Image build workflow with GHA
 
 ### Bootstrap platform(EKS) with fluxCD
 ```ruby
@@ -75,7 +75,7 @@ total 32
     - Monitoring
     - Ingress 
     - Security rbac manager 
-    - 
+
 
 ### App routing and ingress configuration 
 1. Install ingress controller on cluster via cli
