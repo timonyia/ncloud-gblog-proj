@@ -26,7 +26,7 @@ Navigate to [platform-infra](https://github.com/timonyia/ncloud-gblog-proj/tree/
 * EKS v1.20 
 ### Build and push application to ECR (GitHub Action)
 Navigate to [ecr-image-build](https://github.com/timonyia/ncloud-gblog-proj/blob/master/.github/workflows/app-docker-builder.yaml)
-Componenets incoude 
+>Componenets incoude 
 * ECR repo 
 * Image build workflow with GHA
 
@@ -61,7 +61,7 @@ ncloud-gblog-proj-source        True    Applied revision: master/04df242257cd118
 ```
 
 ### Deploy components via repo with flux(gitOps)
-    - test|staging|prod environment 
+>test|staging|prod environment 
 ```ruby
 ncloud-gblog-proj/deployment/flux-kustomizer/test-env
 test-env[master] $ ll 
@@ -71,10 +71,6 @@ total 32
 -rw-------  1 felixm  181693646  225 15 Nov 20:12 service.yaml
 -rw-------  1 felixm  181693646  516 15 Nov 20:14 deployments.yaml
 ```
-    - GhotBlog app 
-    - Monitoring
-    - Ingress 
-    - Security rbac manager 
 
 
 ### App routing and ingress configuration 
