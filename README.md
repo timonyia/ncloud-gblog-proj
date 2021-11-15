@@ -18,6 +18,7 @@ Navigate to [networking-infra](https://github.com/timonyia/ncloud-gblog-proj/tre
 * subnet configuration 
 * NATG toggle 
 * ECR setup
+* terraform version: v0.12.31
 
 ### Create platform(EKS) for deployment infra 
 Navigate to [platform-infra](https://github.com/timonyia/ncloud-gblog-proj/tree/master/infra/platform)
@@ -25,6 +26,7 @@ Navigate to [platform-infra](https://github.com/timonyia/ncloud-gblog-proj/tree/
 * Third party EKS module
 * Dynamic networking interpolation 
 * EKS v1.20 
+* terraform version: v0.12.31
 
 >Authenticate to cluster after creation 
 ```ruby
