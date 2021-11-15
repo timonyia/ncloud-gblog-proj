@@ -8,7 +8,6 @@ Ncloud assignment work in progress
 
 
 This is a setup that ochestrates deployment of ghost blog to a kubernetes cluster, in our case EKS 
-
 This setup integrate multiple devops tools to achieve a deployment. Below are the following steps we have implemented to 
 
 - Create networking layers (VPC|Subnets etc)
@@ -29,7 +28,7 @@ notification-controller-f9b7dc79d-snj79        1/1     Running   0          65m
 source-controller-7975f5b479-d8f45             1/1     Running   0          65m
 ```
 
-- Setup fluxcd sources and kustomizations 
+### Setup fluxcd sources and kustomizations 
 ```ruby
 flux create source git ncloud-gblog-proj-source --url https://github.com/timonyia/ncloud-gblog-proj.git --branch master --interval 30s --export | tee apps/ncloud-gblog-proj-source.yaml
 flux create kustomization ncloud-gblog-proj-source --source ncloud-gblog-proj-source --path "./deployment/flux-kustomizer" --prune true --validation client --interval 10m --export | tee -a apps/ncloud-gblog-proj-source.yaml 
@@ -44,7 +43,7 @@ flux-system                     True    Applied revision: master/2946a5144624abc
 ncloud-gblog-proj-source        True    Applied revision: master/04df242257cd11859b1171c35ee9b3fe29dc0663       master/04df242257cd11859b1171c35ee9b3fe29dc0663 False 
 ```
 
-- Deploy components via repo with flux(gitOps)
+### Deploy components via repo with flux(gitOps)
     - test|staging|prod environment 
 ```ruby
 ncloud-gblog-proj/deployment/flux-kustomizer/test-env
@@ -61,7 +60,7 @@ total 32
     - Security rbac manager 
     - 
 
-- App routing and ingress configuration 
+### App routing and ingress configuration 
 1. Install ingress controller on cluster via cli
 ```ruby
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml
@@ -75,13 +74,34 @@ kube-node-lease      Active   158m
 kube-public          Active   158m
 kube-system          Active   158m
 test-env-ghostblog   Active   56m
-
 $ kcd ingress-nginx
-flux-controller[master] $ k get po 
+
+$ k get po 
 NAME                                        READY   STATUS      RESTARTS   AGE
 ingress-nginx-admission-create-kb5qq        0/1     Completed   0          71s
 ingress-nginx-admission-patch-nr96c         0/1     Completed   1          71s
 ingress-nginx-controller-65c4f84996-lsf2r   1/1     Running     0          71s
 ```
-2. 
+2. Create ingress rule for test-env 
+
+```ruby
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: test-env-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: "test-env.aws.mycloudlearning.uk"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: test-env-ghostblog
+            port:
+              number: 80
+```
 
