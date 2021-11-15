@@ -106,7 +106,7 @@ spec:
               number: 80
 ```
 
-3. View all available ingress currently deployed, please not - se have one single LB service multiple application 
+3. View all available ingress currently deployed, please note - we have one single LB serving multiple applications on different namespaces 
 ```ruby
 k get ing -A 
 NAMESPACE               NAME                  CLASS    HOSTS                                ADDRESS                                                                   PORTS   AGE
