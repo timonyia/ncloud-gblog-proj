@@ -11,10 +11,26 @@ This is a setup that ochestrates deployment of ghost blog to a kubernetes cluste
 This setup integrate multiple devops tools to achieve a deployment. Below are the following steps we have implemented to 
 
 ### Create networking layers (VPC|Subnets etc)
-Navigate to [infra](https://github.com/timonyia/ncloud-gblog-proj/tree/master/infra/networking)
-- Create platform for deployment 
-- Build and push application to ECR (Ci)
-- Bootstrap platform(EKS) with fluxCD
+Navigate to [networking-infra](https://github.com/timonyia/ncloud-gblog-proj/tree/master/infra/networking)
+Resources include 
+    - Basic VPC module 
+    - subnet configuration 
+    - NATG toggle 
+    - ECR setup
+
+### Create platform(EKS) for deployment infra 
+Navigate to [platform-infra](https://github.com/timonyia/ncloud-gblog-proj/tree/master/infra/platform)
+Resources include
+    - Third party EKS module
+    - Dynamic networking interpolation 
+    - EKS v1.20 
+### Build and push application to ECR (GitHub Action)
+Navigate to [ecr-image-build](https://github.com/timonyia/ncloud-gblog-proj/blob/master/.github/workflows/app-docker-builder.yaml)
+Componenets incoude 
+    - ECR repo 
+    - Image build workflow with GHA
+
+### Bootstrap platform(EKS) with fluxCD
 ```ruby
 flux bootstrap github --owner timonyia --repository flux-controller --branch master --path apps --personal true --components-extra=image-reflector-controller,image-automation-controller --token-auth
 ```
