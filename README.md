@@ -82,7 +82,7 @@ ingress-nginx-admission-create-kb5qq        0/1     Completed   0          71s
 ingress-nginx-admission-patch-nr96c         0/1     Completed   1          71s
 ingress-nginx-controller-65c4f84996-lsf2r   1/1     Running     0          71s
 ```
-2. Create ingress rule for test-env 
+2. Create ingress object per environment please see sample file in the test-env as below  
 
 ```ruby
 apiVersion: networking.k8s.io/v1
@@ -104,5 +104,14 @@ spec:
             name: test-env-ghostblog
             port:
               number: 80
+```
+
+3. View all available ingress currently deployed, please not - se have one single LB service multiple application 
+```ruby
+k get ing -A 
+NAMESPACE               NAME                  CLASS    HOSTS                                ADDRESS                                                                   PORTS   AGE
+monitoring              mon-env-ingress       <none>   monitoring.aws.mycloudlearning.uk    aa5c0806e27224c50aeac2e5b02ee1e5-1755909412.eu-west-1.elb.amazonaws.com   80      4m9s
+staging-env-ghostblog   staging-env-ingress   <none>   staging-env.aws.mycloudlearning.uk   aa5c0806e27224c50aeac2e5b02ee1e5-1755909412.eu-west-1.elb.amazonaws.com   80      20m
+test-env-ghostblog      test-env-ingress      <none>   test-env.aws.mycloudlearning.uk      aa5c0806e27224c50aeac2e5b02ee1e5-1755909412.eu-west-1.elb.amazonaws.com   80      27m
 ```
 
