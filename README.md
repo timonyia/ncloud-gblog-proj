@@ -26,7 +26,7 @@ Navigate to [platform-infra](https://github.com/timonyia/ncloud-gblog-proj/tree/
 * EKS v1.20 
 ### Build and push application to ECR (GitHub Action)
 Navigate to [ecr-image-build](https://github.com/timonyia/ncloud-gblog-proj/blob/master/.github/workflows/app-docker-builder.yaml)
->Componenets incoude 
+>Components include 
 * ECR repo 
 * Image build workflow with GHA
 
