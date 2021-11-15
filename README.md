@@ -24,6 +24,13 @@ Navigate to [platform-infra](https://github.com/timonyia/ncloud-gblog-proj/tree/
 * Third party EKS module
 * Dynamic networking interpolation 
 * EKS v1.20 
+
+>Authenticate to cluster after creation 
+```ruby
+$ aws sts get-caller-identity
+$ aws eks --region eu-west-1 update-kubeconfig --name ncloud-gblog-proj-cluster
+$ kubectl config get-contexts
+```
 ### Build and push application to ECR (GitHub Action)
 Navigate to [ecr-image-build](https://github.com/timonyia/ncloud-gblog-proj/blob/master/.github/workflows/app-docker-builder.yaml)
 >Components include 
