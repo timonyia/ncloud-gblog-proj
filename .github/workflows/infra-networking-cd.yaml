@@ -1,4 +1,4 @@
-name: 'Component: Plan and Apply'
+name: 'infra-networking-cd-plan+apply'
 
 on:
   workflow_dispatch:
