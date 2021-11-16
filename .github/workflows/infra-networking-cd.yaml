@@ -1,0 +1,13 @@
+name: 'Component: Plan and Apply'
+
+on:
+  workflow_dispatch:
+    inputs:
+      component_path:
+        description: 'Which component to apply?'
+        default: aws-sandbox/eu-west-1/dev
+        required: true
+      run_apply:
+        description: 'Run Apply? (Y|N)'
+        required: false
+        default: 'N'
