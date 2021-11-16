@@ -1,4 +1,4 @@
-name: Deploy to ECR
+name: app-docker-builder-ecr-repo-build+push
 on:
   push:
     pull_request:
