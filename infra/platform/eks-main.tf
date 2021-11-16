@@ -7,11 +7,21 @@ locals {
   cluster_name = "ncloud-gblog-proj-cluster"
 }
 
+data "terraform_remote_state" "networking" {
+  backend = "s3"
+  config = {
+    bucket = "ncloud-gblog-proj-global-states"
+    key    = "networking/terraform.tfstate"
+    region = "eu-west-1"
+  }
+}
+
+
 module "eks" {
   source          = "git::https://github.com/terraform-aws-modules/terraform-aws-eks.git?ref=v12.1.0"
   cluster_name    = local.cluster_name
-  vpc_id          = "vpc-019c5972a170d9f60"
-  subnets         = ["subnet-0795dc4e326f91af2", "subnet-0efcbf98dd32ace43", "subnet-0864bbe4387a46668"]
+  vpc_id          = data.terraform_remote_state.networking.outputs.vpc_id
+  subnets         = data.terraform_remote_state.networking.outputs.public_subnets
   cluster_version = "1.20"
 
   node_groups = {
@@ -20,26 +30,17 @@ module "eks" {
       max_capacity     = 4
       min_capaicty     = 1
       instance_type    = "t2.small"
-
       k8s_labels = {
         Environment = "ncloud-gblog-proj-cluster"
       }
-
-      # tags = {
-      #   Name = "ncloud-gblog-proj"
-      # }
     }
   }
 
   manage_aws_auth = false
-  # map_users    = var.map_users
-#   map_accounts = var.map_accounts
-  # write_kubeconfig = false 
-
   tags = {
-    Environment = "ncloud-gblog-projCluster"
-    Name = "ncloud-gblog-proj"
-    Managedby = "Terraform"
+    Environment = "main"
+    Name        = "ncloud-gblog-proj"
+    Managedby   = "Terraform"
   }
 }
 

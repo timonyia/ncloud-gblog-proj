@@ -1,4 +1,4 @@
-output "vpc_id_otp" {
+output "vpc_id" {
   description = "Fetch VPC ID "
   value       = concat(aws_vpc.dm_vpc_res.*.id, [""])[0]
 }
