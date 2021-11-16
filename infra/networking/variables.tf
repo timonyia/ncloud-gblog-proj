@@ -54,13 +54,13 @@ variable "priv_azs" {
 }
 
 variable "enabled_nat_gateway" {
-  description = "Tip just set to false and save money"
+  description = "Set to false and save money"
   default     = ""
   type        = string
 }
 
 variable "enabled_single_nat_gateway" {
-  description = "Just set to false"
+  description = "Set to false"
   default     = ""
   type        = string
 }
