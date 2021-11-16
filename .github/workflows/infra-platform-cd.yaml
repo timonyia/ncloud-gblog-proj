@@ -5,7 +5,7 @@ on:
     inputs:
       component_path:
         description: 'Which component to apply?'
-        default: infra/networking
+        default: infra/platform
         required: true
       run_apply:
         description: 'Run Apply? (Y|N)'
