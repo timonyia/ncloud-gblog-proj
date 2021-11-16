@@ -11,3 +11,15 @@ on:
         description: 'Run Apply? (Y|N)'
         required: false
         default: 'N'
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@1.0.0
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: v0.12.31        
