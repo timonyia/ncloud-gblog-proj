@@ -1,4 +1,4 @@
-name: 'infra-networking-cd-plan+apply'
+name: 'infra-platform-cd-plan+apply'
 
 on:
   workflow_dispatch:
