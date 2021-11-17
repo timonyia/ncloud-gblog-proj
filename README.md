@@ -32,8 +32,6 @@ uses: aws-actions/configure-aws-credentials@v1
 - name: Setup Terraform
 uses: hashicorp/setup-terraform@v1
 
-- name: Checkout
-uses: actions/checkout@1.0.0 
 ```
 ### Create platform(EKS) for deployment infra 
 Navigate to [platform-infra](https://github.com/timonyia/ncloud-gblog-proj/tree/master/infra/platform)
@@ -61,9 +59,6 @@ uses: aws-actions/configure-aws-credentials@v1
 
 - name: Setup Terraform
 uses: hashicorp/setup-terraform@v1
-
-- name: Checkout
-uses: actions/checkout@1.0.0 
 ```
 ### Build and push application to ECR (GitHub Action)
 Navigate to [ecr-image-build](https://github.com/timonyia/ncloud-gblog-proj/blob/master/.github/workflows/app-docker-builder.yaml)
