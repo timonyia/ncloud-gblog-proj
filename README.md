@@ -75,7 +75,7 @@ aws ecr get-login-password --region eu-west-1 | docker login --username AWS --pa
 flux bootstrap github --owner timonyia --repository flux-controller --branch master --path apps --personal true --components-extra=image-reflector-controller,image-automation-controller --token-auth
 ```
 ```ruby
-$ k get po -n flux-system 
+$ kubectl get pods -n flux-system 
 NAME                                           READY   STATUS    RESTARTS   AGE
 helm-controller-869cbdd784-4gtgq               1/1     Running   0          65m
 image-automation-controller-7655f57596-49lwq   1/1     Running   0          65m
