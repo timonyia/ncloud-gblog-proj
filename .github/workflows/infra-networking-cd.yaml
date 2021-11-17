@@ -74,5 +74,9 @@ jobs:
 
       - name: Terraform Init
         working-directory: ${{ env.TERRAFORM_COMP_PATH }}
+        run: terraform init  
+
+      - name: Terraform apply
+        working-directory: ${{ env.TERRAFORM_COMP_PATH }}
         run: terraform apply -auto-approve   
       
