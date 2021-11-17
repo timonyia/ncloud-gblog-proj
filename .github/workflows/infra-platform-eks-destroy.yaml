@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       component_path:
-        description: 'Which component to apply?'
+        description: 'Which component to destroy?'
         default: infra/platform
         required: true
       # run_apply:
