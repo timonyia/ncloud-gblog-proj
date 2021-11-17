@@ -175,3 +175,8 @@ test-env-ghostblog      test-env-ingress      <none>   test-env.aws.mycloudlearn
 
 ### Configure cluster dashboard 
 Manual setup of rancher with [user-guide](https://rancher.com/docs/rke/latest/en/config-options/)
+
+
+### Cleanup resources and components 
+1. Run the platform destroyer job [here](https://github.com/timonyia/ncloud-gblog-proj/actions/workflows/infra-platform-eks-destroy.yaml)
+2. Delete any ophan LoadBalancer on your AWS 
