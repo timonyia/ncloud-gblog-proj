@@ -43,9 +43,9 @@ Navigate to [platform-infra](https://github.com/timonyia/ncloud-gblog-proj/tree/
 
 >Authenticate to cluster after creation 
 ```ruby
-$ aws sts get-caller-identity
-$ aws eks --region eu-west-1 update-kubeconfig --name ncloud-gblog-proj-cluster
-$ kubectl config get-contexts
+aws sts get-caller-identity
+aws eks --region eu-west-1 update-kubeconfig --name ncloud-gblog-proj-cluster
+kubectl config get-contexts
 ```
 
 platform infra cicd with github actions workfow can be found [here](https://github.com/timonyia/ncloud-gblog-proj/blob/master/.github/workflows/infra-platform-cd.yaml)
