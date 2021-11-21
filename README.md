@@ -69,6 +69,8 @@ Navigate to [ecr-image-build](https://github.com/timonyia/ncloud-gblog-proj/blob
 ```ruby
 aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 303577xxxxx.dkr.ecr.eu-west-1.amazonaws.com
 ```
+### Export github token to your machine/flux instance
+export GITHUB_TOKEN=YOURGITHUBTOKEN
 
 ### Bootstrap platform(EKS) with fluxCD
 ```ruby
