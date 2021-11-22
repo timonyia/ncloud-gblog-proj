@@ -70,12 +70,20 @@ Navigate to [ecr-image-build](https://github.com/timonyia/ncloud-gblog-proj/blob
 aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 303577xxxxx.dkr.ecr.eu-west-1.amazonaws.com
 ```
 ### Export github token to your machine/flux instance
+```ruby
 export GITHUB_TOKEN=YOURGITHUBTOKEN
+```
 
 ### Bootstrap platform(EKS) with fluxCD
 ```ruby
 flux bootstrap github --owner timonyia --repository flux-controller --branch master --path apps --personal true --components-extra=image-reflector-controller,image-automation-controller --token-auth
 ```
+
+### Clone the created flux management repo locally 
+```ruby
+git clone https://github.com/timonyia/nts manifest  # Make sure you are able to push to this repo with the right creds 
+```
+
 ```ruby
 $ kubectl get pods -n flux-system 
 NAME                                           READY   STATUS    RESTARTS   AGE
@@ -88,10 +96,25 @@ source-controller-7975f5b479-d8f45             1/1     Running   0          65m
 ```
 
 ### Setup fluxcd sources and kustomizations 
+Navigate to flux management repo `flux-controller` 
+```ruby 
+cd flux-controller/
+```
+
+Run below commands from the flux-controller repo 
 ```ruby
 flux create source git ncloud-gblog-proj-source --url https://github.com/timonyia/ncloud-gblog-proj.git --branch master --interval 30s --export | tee apps/ncloud-gblog-proj-source.yaml
 flux create kustomization ncloud-gblog-proj-source --source ncloud-gblog-proj-source --path "./deployment/flux-kustomizer" --prune true --validation client --interval 10m --export | tee -a apps/ncloud-gblog-proj-source.yaml 
 ```
+
+Above command essentially creates|generates and merges a new `manifest file` for your sources and kusmtomization components. 
+Push this new file to the flux management repo 
+```ruby
+git add --all ; git -am "sources and kustomization components added" ; git push origin master 
+```
+
+Next watch the synchronization happen based on the changed components with below commands 
+
 ```ruby
 flux get source git ; flux get kustomization 
 NAME                            READY   MESSAGE                                                                 REVISION                                        SUSPENDED 

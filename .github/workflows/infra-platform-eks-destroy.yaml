@@ -44,6 +44,6 @@ jobs:
         working-directory: ${{ env.TERRAFORM_COMP_PATH }}
         run: terraform init  
       
-      - name: Terraform Plan
+      - name: Terraform Destroy
         working-directory: ${{ env.TERRAFORM_COMP_PATH }}
         run: terraform destroy -force
