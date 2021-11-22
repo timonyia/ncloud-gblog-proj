@@ -190,7 +190,7 @@ spec:
 ```
 
 3. View all available ingress currently deployed, please note - we have one single LB serving multiple applications on different namespaces 
-```yaml
+```ruby
 k get ing -A 
 NAMESPACE               NAME                  CLASS    HOSTS                                ADDRESS                                                                   PORTS   AGE
 monitoring              mon-env-ingress       <none>   monitoring.aws.mycloudlearning.uk    aa5c0806e27224c50aeac2e5b02ee1e5-1755909412.eu-west-1.elb.amazonaws.com   80      4m9s
