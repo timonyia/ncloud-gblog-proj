@@ -81,7 +81,7 @@ flux bootstrap github --owner timonyia --repository flux-controller --branch mas
 
 ### Clone the created flux management repo locally 
 ```ruby
-git clone https://github.com/timonyia/nts manifest  # Make sure you are able to push to this repo with the right creds 
+git clone https://github.com/timonyia/flux-controller  # Make sure you are able to push to this repo with the right creds 
 ```
 
 ```ruby
